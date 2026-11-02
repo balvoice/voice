@@ -1,0 +1,158 @@
+<!-- title: How the Technology Works — BalVoice -->
+<!-- description: How BalVoice delivers voice broadcasts: audio storage, contact management, scheduling, automated dialing over the telephone network, and call tracking compiled into reports. -->
+<!-- nav: how -->
+
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb" aria-label="Breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">How It Works</li>
+    </ol>
+    <h1>How the technology works</h1>
+    <p class="lead">A voice broadcast moves through five parts of a system — from the platform where your message is stored to the report that tells you what happened to every call.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="overview-title">
+  <div class="container">
+    <h2 id="overview-title" class="sr-only">System overview</h2>
+    <ol class="flow reveal" aria-label="Path of a voice broadcast call">
+      <li>
+        <div class="flow-node">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="5" width="20" height="6" rx="1.5"/><rect x="4" y="13" width="20" height="6" rx="1.5"/><path d="M8 8h.01M8 16h.01M7 23h14" stroke-linecap="round" stroke-width="2"/></svg>
+          <div><strong>Voice Platform</strong><span>Stores audio, contacts, and schedules</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="flow-node">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="4" width="18" height="20" rx="2"/><path d="M10 10h.01M14 10h.01M18 10h.01M10 14h.01M14 14h.01M18 14h.01M10 18h.01M14 18h.01M18 18h.01" stroke-linecap="round" stroke-width="2.2"/></svg>
+          <div><strong>Dialer Engine</strong><span>Places calls and plays the message</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="flow-node">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 12v13M10 25h8M14 12l-4 13M14 12l4 13" stroke-linecap="round"/><circle cx="14" cy="10" r="2"/><path d="M9.5 5.5a6.5 6.5 0 0 0 0 9M18.5 5.5a6.5 6.5 0 0 1 0 9" stroke-linecap="round"/></svg>
+          <div><strong>Telephone Network</strong><span>Carries calls to mobile and fixed lines</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="flow-node">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="3" width="12" height="22" rx="2.5"/><path d="M12.5 21.5h3" stroke-linecap="round"/></svg>
+          <div><strong>Recipient Phone</strong><span>Rings, answers, hears the message</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="flow-node">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 3h10l5 5v17H7z" stroke-linejoin="round"/><path d="M17 3v5h5M11 21v-4M14.5 21v-7M18 21v-5" stroke-linecap="round"/></svg>
+          <div><strong>Reporting System</strong><span>Collects and compiles call results</span></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-soft section-rule" aria-labelledby="stages-title">
+  <div class="container split">
+    <div class="reveal">
+      <h2 id="stages-title">Each stage in detail</h2>
+      <p class="muted">What each component does, and what it means for your campaign.</p>
+    </div>
+    <ol class="timeline reveal">
+      <li>
+        <h3>Voice Platform</h3>
+        <p class="tl-sub">Audio storage · Contact management · Scheduling</p>
+        <p>The platform is where a campaign is put together. Your recorded message is stored as an audio file, your contact list is imported and cleaned, and the campaign schedule is saved.</p>
+        <ul class="dash-list">
+          <li>Audio is stored securely and checked for format and length</li>
+          <li>Numbers are standardised, duplicates removed, and opted-out contacts excluded</li>
+          <li>The schedule records start time, daily calling window, and retry rules</li>
+          <li>Contacts are kept in reusable groups, so a campaign can go to one or several groups without uploading a list again</li>
+          <li>Messages can be an uploaded recording or typed text converted to speech in English, Twi, Hausa, or Ewe, personalised with each contact's name</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Dialer Engine</h3>
+        <p class="tl-sub">Automated dialing</p>
+        <p>At the scheduled time, the dialer begins working through the contact list. It places many calls in parallel, detects when a call is answered, and plays your message.</p>
+        <ul class="dash-list">
+          <li>Calls are placed only inside the calling window you set</li>
+          <li>Busy and unanswered numbers are queued for retry after the interval you choose</li>
+          <li>The campaign can be paused or stopped at any point</li>
+          <li>Calls display your approved caller ID — a brand name or your own number</li>
+          <li>Campaigns can repeat daily, weekly, or monthly, calling each group as it stands on the day</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Telephone Network</h3>
+        <p class="tl-sub">Call routing</p>
+        <p>Calls travel over standard telephone networks to mobile and landline numbers. The network returns a signal for each attempt — whether the call connected, the line was busy, the phone rang without an answer, or the number could not be reached.</p>
+      </li>
+      <li>
+        <h3>Recipient Phone</h3>
+        <p class="tl-sub">Message delivery</p>
+        <p>The recipient's phone rings like any normal call. When they answer, your recorded message plays from the start. No app, internet connection, or smartphone is needed — any phone that can receive calls will work.</p>
+      </li>
+      <li>
+        <h3>Reporting System</h3>
+        <p class="tl-sub">Call tracking</p>
+        <p>The result of every attempt is recorded as it happens. Call results such as answered, busy, and unreachable are collected into reports, giving you totals for the campaign and a line-by-line record for each number.</p>
+        <ul class="dash-list">
+          <li>Outcome, attempt count, and time of each call</li>
+          <li>Campaign totals by outcome</li>
+          <li>Downloadable report for your records and follow-up</li>
+          <li>Contacts who were not reached can be saved as a new group for a follow-up campaign</li>
+          <li>Call results can be sent to your own systems through a webhook</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="outcomes-title">
+  <div class="container split">
+    <div class="reveal">
+      <h2 id="outcomes-title">Call outcomes</h2>
+      <p class="muted">Every attempt ends in one of these results. They appear in your delivery report.</p>
+    </div>
+    <div class="panel reveal">
+      <table class="data-table">
+        <caption class="sr-only">Call outcome definitions</caption>
+        <thead><tr><th scope="col">Outcome</th><th scope="col">Meaning</th><th scope="col">Retried?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag tag-answered">Answered</span></td><td>The call connected and the message played.</td><td>No</td></tr>
+          <tr><td><span class="tag tag-busy">Busy</span></td><td>The line was engaged when called.</td><td>Yes, if enabled</td></tr>
+          <tr><td><span class="tag tag-noanswer">No answer</span></td><td>The phone rang but nobody picked up.</td><td>Yes, if enabled</td></tr>
+          <tr><td><span class="tag tag-failed">Unreachable</span></td><td>Phone off, out of coverage, or invalid number.</td><td>Yes, if enabled</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft section-rule" aria-labelledby="data-title">
+  <div class="container split">
+    <div class="reveal">
+      <h2 id="data-title">Data, consent, and security</h2>
+      <p class="muted">Your contact lists and recordings belong to you. They are handled with that in mind.</p>
+    </div>
+    <dl class="cap-list reveal">
+      <div><dt>Consent records</dt><dd>Before each campaign, you confirm that recipients agreed to be contacted. This confirmation is stored with the campaign.</dd></div>
+      <div><dt>Opt-out register</dt><dd>Opt-out requests are added to a register that is checked before every campaign, so those numbers are never called again.</dd></div>
+      <div><dt>Restricted access</dt><dd>Campaign data is visible only to authorised users on your account.</dd></div>
+      <div><dt>Secure uploads</dt><dd>Uploaded files are checked for type and size and transferred over encrypted connections.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="container">
+    <div>
+      <h2 id="cta-title">Ready to plan a campaign?</h2>
+      <p>Start with a cost estimate, or tell us about your message and we will guide you through the setup.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-inverse btn-lg" href="contact.html">Request a Campaign</a>
+      <a class="btn btn-outline-inverse btn-lg" href="pricing.html">Estimate Costs</a>
+    </div>
+  </div>
+</section>

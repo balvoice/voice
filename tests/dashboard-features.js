@@ -1,0 +1,32 @@
+const { chromium } = require('playwright');
+(async()=>{const b=await chromium.launch();
+for (const [w,h,t] of [[1366,900,'d'],[390,844,'m']]){
+const ctx=await b.newContext({viewport:{width:w,height:h}});await ctx.addCookies([{name:'bv_consent',value:encodeURIComponent(JSON.stringify({v:'2026-10',necessary:true,preferences:false,analytics:false})),url:'http://localhost:8765'}]);const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>{if(m.type()==='error'&&!/TUNNEL/.test(m.text()))errs.push(m.text())});
+p.on('dialog',d=>d.type()==='prompt'?d.accept('Not reached '+t):d.accept());
+const U='http://localhost:8765/dashboard.html';
+const ov=async(n)=>{const o=await p.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1&&!e.closest('.table-wrap')&&!e.closest('.sidebar')&&!e.closest('.steps')).slice(0,4).map(e=>e.tagName+'.'+e.className));if(o.length)errs.push(n+' overflow '+o)};
+await p.goto(U+'#/groups');await p.click('#g-empty-new');await p.fill('#g-name','Members');await p.fill('#g-desc','Registered members');await p.click('#g-new button[type=submit]');
+await p.waitForSelector('#imp-file');await p.setInputFiles('#imp-file','group.csv');await p.waitForTimeout(300);
+console.log(t,'import:',await p.textContent('#imp-result'));
+await p.fill('#a-phone','+233209999999');await p.fill('#a-fn','Kofi');await p.click('#add-form button[type=submit]');
+await p.goto(U+'#/groups');await p.click('#g-new-toggle');await p.fill('#g-name','Volunteers');await p.click('#g-new button[type=submit]');
+await p.goto(U+'#/groups');const href=await p.getAttribute('table a[href^="#/group/"]','href');await p.goto(U+href);
+await p.check('#sel-all');await p.click('[data-bulk=copy]');await p.screenshot({path:`screenshots/f-group-${t}.png`,fullPage:true});await ov('group');
+await p.goto(U+'#/callerids');await p.fill('#cid-value','gracechapel');await p.click('#cid-form button[type=submit]');await p.click('[data-cid-approve]');
+await p.goto(U+'#/settings');await p.fill('#s-rate','0.15');await p.click('#bill-form button[type=submit]');await p.screenshot({path:`screenshots/f-settings-${t}.png`,fullPage:true});await ov('settings');
+await p.goto(U+'#/templates');await p.click('[data-copy]');await p.click('#t-form button[type=submit]');
+await p.goto(U+'#/new');await p.fill('#w-name','Sunday reminder');await p.selectOption('#w-type','church');await p.fill('#w-sender','Grace Chapel');
+const opts=await p.$$eval('#w-caller option',o=>o.map(x=>x.textContent));console.log(t,'caller opts',opts);await p.selectOption('#w-caller',{index:1});await p.click('button[type=submit]');
+await p.click('[data-value=tts]');await p.selectOption('#w-tpl',{index:1});await p.check('#w-chk-sender');await p.check('#w-chk-optout');await p.click('button[type=submit]');
+await p.click('label.pick >> nth=0');await p.waitForTimeout(100);await p.screenshot({path:`screenshots/f-recip-${t}.png`,fullPage:true});await ov('recip');
+await p.check('#w-consent');await p.fill('#w-basis','Members gave their numbers on the registration form');await p.click('button[type=submit]');
+await p.fill('#w-date','2027-01-10');await p.fill('#w-time','10:00');await p.selectOption('#w-repeat','weekly');await p.fill('#w-until','2027-02-10');await p.click('button[type=submit]');
+await p.fill('#w-testphone','+233201112222');await p.click('#w-testcall');await p.screenshot({path:`screenshots/f-review-${t}.png`,fullPage:true});await ov('review');
+await p.click('button[type=submit]');await p.waitForSelector('[data-act=start]');await p.click('[data-act=start]');
+await p.waitForSelector('[data-act=export]',{timeout:20000});await p.click('[data-act=unreached]');await p.waitForTimeout(200);
+await p.screenshot({path:`screenshots/f-detail-${t}.png`,fullPage:true});await ov('detail');
+await p.click('[data-act=rerun]');await p.waitForSelector('[data-act=export]',{timeout:20000});console.log(t,'history rows',await p.locator('#hist-h').count());
+await p.goto(U+'#/contacts');await p.screenshot({path:`screenshots/f-contacts-${t}.png`});await ov('contacts');
+console.log(t,'groups:',await p.evaluate(()=>JSON.parse(localStorage.getItem('balvoice.demo.v1')).groups.map(g=>g.name)));
+console.log(t,errs);await p.close();}
+await b.close();})();

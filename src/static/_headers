@@ -1,0 +1,26 @@
+# Security headers for static hosts that support a _headers file (Netlify, Cloudflare Pages).
+# For other servers (Nginx, Apache), apply the equivalent headers in the server config.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: {{csp}}; frame-ancestors 'none'
+
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/dashboard.html
+  X-Robots-Tag: noindex, nofollow
+
+/login.html
+  Cache-Control: no-store
+/signup.html
+  Cache-Control: no-store
+/auth-callback.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+/reset-password.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow

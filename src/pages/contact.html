@@ -1,0 +1,162 @@
+<!-- title: Request a Campaign — BalVoice -->
+<!-- description: Tell us about your voice broadcast campaign — your organization, audience size, and timing — and we will help you plan it and estimate the cost. -->
+<!-- nav: contact -->
+
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb" aria-label="Breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Contact</li>
+    </ol>
+    <h1>Request a campaign</h1>
+    <p class="lead">Tell us about your organization and the message you want to deliver. We will get back to you to discuss timing, requirements, and cost.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="form-title">
+  <div class="container contact-grid">
+    <div>
+      <h2 id="form-title" class="sr-only">Campaign request form</h2>
+      <form id="request-form" class="form" novalidate data-endpoint="" autocomplete="on">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-organization">Organization</label>
+            <input class="input" id="f-organization" name="organization" type="text" maxlength="120" autocomplete="organization" required>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input class="input" id="f-name" name="name" type="text" maxlength="80" autocomplete="name" required>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input class="input" id="f-email" name="email" type="email" maxlength="160" autocomplete="email" required>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input class="input" id="f-phone" name="phone" type="tel" maxlength="20" autocomplete="tel" required>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-type">Campaign type</label>
+            <select class="select" id="f-type" name="campaign_type" required>
+              <option value="">Select…</option>
+              <option value="church">Church / evangelism</option>
+              <option value="political">Political / civic</option>
+              <option value="organization">Organization / association</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="f-size">Approximate list size</label>
+            <select class="select" id="f-size" name="list_size" required>
+              <option value="">Select…</option>
+              <option value="under-1000">Under 1,000 contacts</option>
+              <option value="1000-10000">1,000 – 10,000</option>
+              <option value="10000-50000">10,000 – 50,000</option>
+              <option value="over-50000">Over 50,000</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-date">Preferred campaign date <span class="optional">(optional)</span></label>
+          <input class="input" id="f-date" name="preferred_date" type="date">
+        </div>
+
+        <div class="field">
+          <label for="f-message">About your campaign <span class="optional">(optional)</span></label>
+          <textarea class="textarea" id="f-message" name="message" maxlength="2000" placeholder="What is the message about, who will receive it, and do you already have a recording?"></textarea>
+          <span class="field-error" role="alert"></span>
+        </div>
+
+        <div class="hp-field" aria-hidden="true">
+          <label for="f-website">Leave this field empty</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <fieldset class="field checkbox-group">
+          <legend class="sr-only">Consent confirmations</legend>
+          <div class="checkbox-field">
+            <label class="checkbox">
+              <input type="checkbox" name="consent_contacts" required>
+              <span>I confirm that the people on our contact list have agreed to receive calls from our organization.</span>
+            </label>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="checkbox-field">
+            <label class="checkbox">
+              <input type="checkbox" name="consent_optout" required>
+              <span>I agree that every message will include a way for recipients to opt out of future calls.</span>
+            </label>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <div id="form-status" class="form-status" role="status" tabindex="-1"></div>
+
+        <div>
+          <button class="btn btn-primary btn-lg" type="submit">Send Request</button>
+          <p class="small muted mt-24 mb-0">We use these details only to respond to your request.</p>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact-aside">
+      <div class="panel panel-soft">
+        <h3>Contact details</h3>
+        <dl>
+          <div><dt>Email</dt><dd><span class="placeholder-inline">[Business email]</span></dd></div>
+          <div><dt>Phone</dt><dd><span class="placeholder-inline">[Phone number]</span></dd></div>
+          <div><dt>Office</dt><dd><span class="placeholder-inline">[Office address]</span></dd></div>
+          <div><dt>Hours</dt><dd><span class="placeholder-inline">[Business hours]</span></dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>What happens next</h3>
+        <ol class="dash-list">
+          <li>We review your request and contact you to understand the campaign.</li>
+          <li>You receive a cost estimate based on your list size and message length.</li>
+          <li>Once you approve, we set up the recording, list, and schedule.</li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-soft section-rule" id="opt-out" aria-labelledby="optout-title">
+  <div class="container split">
+    <div>
+      <h2 id="optout-title">Stop receiving calls</h2>
+      <p class="muted">If you received a call delivered through BalVoice and no longer wish to receive them, we will remove your number.</p>
+    </div>
+    <div>
+      <ul class="check-list">
+        <li><strong>During a call:</strong> follow the opt-out instruction given in the message.</li>
+        <li><strong>Online:</strong> enter the number you were called on below. It is excluded from every campaign we deliver, for all organizations.</li>
+        <li><strong>By contacting us:</strong> send the phone number you were called on to <span class="placeholder-inline">[opt-out email or number]</span>.</li>
+      </ul>
+      <form id="optout-form" class="form optout-form" novalidate autocomplete="on">
+        <div class="field">
+          <label for="oo-phone">Phone number you were called on</label>
+          <input class="input" id="oo-phone" name="phone" type="tel" maxlength="20" autocomplete="tel" required>
+          <span class="field-error" role="alert"></span>
+        </div>
+        <div class="hp-field" aria-hidden="true"><label for="oo-website">Leave this empty</label><input id="oo-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-secondary" type="submit">Stop calls to this number</button>
+        <div id="optout-status" class="form-status" role="status" tabindex="-1"></div>
+      </form>
+    </div>
+  </div>
+</section>

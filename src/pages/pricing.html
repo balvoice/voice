@@ -1,0 +1,180 @@
+<!-- title: Campaign Cost Factors — BalVoice -->
+<!-- description: Understand what determines the cost of a voice broadcast campaign — contact list size, message duration, retries, answer rate, platform fees, and production — and build your own estimate. -->
+<!-- nav: pricing -->
+
+<section class="page-hero">
+  <div class="container">
+    <ol class="breadcrumb" aria-label="Breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Pricing</li>
+    </ol>
+    <h1>Campaign cost factors</h1>
+    <p class="lead">Every campaign is priced on what it actually uses. There are no fixed packages — the cost follows from the size of your list, the length of your message, and how many attempts are made.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="formula-title">
+  <div class="container split">
+    <div class="reveal">
+      <h2 id="formula-title">How cost is calculated</h2>
+      <p class="muted">Airtime is the largest part of most campaigns. It is charged per minute of call time, so the formula multiplies everything that adds call time.</p>
+    </div>
+    <div class="reveal">
+      <div class="formula" role="math" aria-label="Total cost equals contacts times average minutes times airtime rate times attempts, plus platform fee, plus message production">
+        <div><span class="k">Total Cost</span> <span class="op">=</span></div>
+        <div>&nbsp;&nbsp;(Contacts <span class="op">×</span> Average Minutes <span class="op">×</span> Airtime Rate <span class="op">×</span> Attempts)</div>
+        <div>&nbsp;&nbsp;<span class="op">+</span> Platform Fee</div>
+        <div>&nbsp;&nbsp;<span class="op">+</span> Message Production</div>
+      </div>
+      <p class="small muted mt-24">Airtime rates vary by network and destination, and change over time. We quote the current rate for your campaign before it is scheduled.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft section-rule" aria-labelledby="factors-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="factors-title">The six factors</h2>
+      <p>Understanding these helps you plan a campaign that fits your budget.</p>
+    </div>
+    <ol class="factor-list reveal">
+      <li><h3>Contact list size</h3><p>The number of phone numbers to be called. Cleaning the list first — removing duplicates and invalid numbers — avoids paying for calls that cannot connect.</p></li>
+      <li><h3>Message duration</h3><p>Longer messages use more airtime per call. Depending on the network, calls may be billed per second or rounded up to the next full minute, so a 62-second message can cost the same as a 2-minute one.</p></li>
+      <li><h3>Retry attempts</h3><p>Retries call busy or unanswered numbers again. They increase the number of people reached, and the number of call attempts.</p></li>
+      <li><h3>Answer rate</h3><p>The share of calls that are picked up. It depends on your audience, the time of day, and whether recipients recognise the caller. A higher answer rate means fewer retries are needed.</p></li>
+      <li><h3>Platform fees</h3><p>Covers campaign setup, list processing, scheduling, dialing infrastructure, and reporting.</p></li>
+      <li><h3>Production costs</h3><p>Optional. Scriptwriting, professional voice recording, translation, or audio editing if you do not supply a finished recording.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="calc-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="calc-title">Estimate your campaign</h2>
+      <p>Enter your own figures. The airtime rate, platform fee, and production cost should come from your quote.</p>
+    </div>
+
+    <form id="cost-calc" class="calc reveal" novalidate>
+      <div class="calc-inputs">
+        <div class="form-row">
+          <div class="field">
+            <label for="calc-contacts">Contacts</label>
+            <input class="input" id="calc-contacts" type="number" inputmode="numeric" min="0" max="10000000" step="1" value="5000">
+          </div>
+          <div class="field">
+            <label for="calc-currency">Currency</label>
+            <select class="select" id="calc-currency">
+              <option value="GHS">GHS — Ghana cedi</option>
+              <option value="USD">USD — US dollar</option>
+              <option value="NGN">NGN — Nigerian naira</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — Pound sterling</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="calc-duration">Message duration</label>
+            <div class="input-group">
+              <input class="input" id="calc-duration" type="number" inputmode="numeric" min="1" max="600" step="1" value="45">
+              <span class="addon">seconds</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="calc-billing">Billing increment</label>
+            <select class="select" id="calc-billing">
+              <option value="second">Per second</option>
+              <option value="minute">Per minute (rounded up)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="calc-rate">Airtime rate</label>
+          <div class="input-group">
+            <input class="input" id="calc-rate" type="number" inputmode="decimal" min="0" step="0.0001" placeholder="From your quote">
+            <span class="addon">per minute</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="calc-retries">Retry attempts for unanswered calls</label>
+          <div class="range-row">
+            <input type="range" id="calc-retries-range" min="0" max="5" step="1" value="2" data-sync="calc-retries" aria-label="Retry attempts slider">
+            <input class="input" id="calc-retries" type="number" min="0" max="5" step="1" value="2">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="calc-answer">Expected answer rate</label>
+          <div class="range-row">
+            <input type="range" id="calc-answer-range" min="5" max="100" step="1" value="50" data-sync="calc-answer" aria-label="Answer rate slider">
+            <div class="input-group">
+              <input class="input" id="calc-answer" type="number" min="1" max="100" step="1" value="50">
+              <span class="addon">%</span>
+            </div>
+          </div>
+          <span class="hint">An assumption for planning only. Actual answer rates vary by audience and timing.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="calc-platform">Platform fee</label>
+            <input class="input" id="calc-platform" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+          </div>
+          <div class="field">
+            <label for="calc-production">Message production</label>
+            <input class="input" id="calc-production" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result" aria-live="polite">
+        <h3>Estimate</h3>
+        <div class="calc-total">
+          <div class="label">Total cost</div>
+          <div class="value" id="out-total">—</div>
+          <div class="note" id="out-per"></div>
+        </div>
+        <ul class="calc-lines">
+          <li><span>Airtime</span><span id="out-airtime">—</span></li>
+          <li class="sub"><span>Billed minutes per call</span><span id="out-minutes">—</span></li>
+          <li class="sub"><span>Average attempts per contact</span><span id="out-attempts">—</span></li>
+          <li class="sub"><span>Total call attempts</span><span id="out-calls">—</span></li>
+          <li><span>Platform fee</span><span id="out-platform">—</span></li>
+          <li><span>Message production</span><span id="out-production">—</span></li>
+          <li><span>Estimated contacts reached</span><span id="out-reached">—</span></li>
+        </ul>
+        <p class="calc-disclaimer">This is a planning estimate, not a quote. It assumes every attempt is billed for the full message length, so actual airtime is often lower — many networks do not charge for unanswered calls. Retries are only made to numbers not yet answered.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section section-soft section-rule" aria-labelledby="save-title">
+  <div class="container split">
+    <div class="reveal">
+      <h2 id="save-title">Ways to keep costs down</h2>
+    </div>
+    <ul class="check-list reveal">
+      <li><strong>Keep the message short.</strong> Say what matters in 30 to 45 seconds. If billing rounds up per minute, staying under 60 seconds matters most.</li>
+      <li><strong>Clean your list.</strong> Remove duplicates, wrong numbers, and people who have opted out before you upload.</li>
+      <li><strong>Choose the calling time carefully.</strong> Calling when your audience is free improves the answer rate and reduces retries.</li>
+      <li><strong>Match retries to your goal.</strong> One or two retries usually balance reach and cost. More retries reach more people at a higher cost per contact.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="container">
+    <div>
+      <h2 id="cta-title">Get a quote for your campaign</h2>
+      <p>Send us your list size, message length, and timing. We will reply with current rates and a detailed estimate.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-inverse btn-lg" href="contact.html">Request a Quote</a>
+    </div>
+  </div>
+</section>

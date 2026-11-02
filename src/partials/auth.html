@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{head}}
+<link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="auth-body">
+<a class="skip-link" href="#auth-main">Skip to content</a>
+<div class="auth-shell">
+  <aside class="auth-aside" aria-label="About BalVoice">
+    <a class="brand brand-light" href="index.html" aria-label="BalVoice home">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="5" fill="#FFFFFF"/>
+        <rect x="7" y="13" width="2.6" height="6" rx="1.3" fill="#1D5BBF"/>
+        <rect x="11.6" y="9.5" width="2.6" height="13" rx="1.3" fill="#13233D"/>
+        <rect x="16.2" y="6.5" width="2.6" height="19" rx="1.3" fill="#13233D"/>
+        <rect x="20.8" y="10.5" width="2.6" height="11" rx="1.3" fill="#13233D"/>
+        <rect x="25.4" y="14" width="2.6" height="4" rx="1.3" fill="#14804A"/>
+      </svg>
+      <span class="brand-name">BalVoice</span>
+    </a>
+    <div class="auth-aside-body">
+      <h2>Voice broadcast campaigns, managed in one place.</h2>
+      <ul class="auth-points">
+        <li>Organise contacts into groups</li>
+        <li>Schedule recorded or text-to-speech messages</li>
+        <li>Track every call in your delivery reports</li>
+      </ul>
+    </div>
+    <p class="auth-aside-foot">Every campaign is consent-based and includes an opt-out.</p>
+  </aside>
+
+  <main class="auth-main" id="auth-main">
+    <div class="auth-top">
+      <a class="brand auth-brand-mobile" href="index.html" aria-label="BalVoice home">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="5" fill="#13233D"/><rect x="7" y="13" width="2.6" height="6" rx="1.3" fill="#8FB3EA"/><rect x="11.6" y="9.5" width="2.6" height="13" rx="1.3" fill="#FFFFFF"/><rect x="16.2" y="6.5" width="2.6" height="19" rx="1.3" fill="#FFFFFF"/><rect x="20.8" y="10.5" width="2.6" height="11" rx="1.3" fill="#FFFFFF"/><rect x="25.4" y="14" width="2.6" height="4" rx="1.3" fill="#3FB37A"/></svg>
+        <span class="brand-name">BalVoice</span>
+      </a>
+      <a class="auth-back" href="index.html">← Back to website</a>
+    </div>
+    <div class="auth-card">
+{{body}}
+    </div>
+    <footer class="auth-foot">
+      <span>&copy; {{year}} BalVoice</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
+      <button type="button" class="auth-linkbtn" data-consent-open>Cookie settings</button>
+    </footer>
+  </main>
+</div>
+<script src="assets/vendor/supabase-js-2.117.3.js" defer></script>
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/consent.js" defer></script>
+<script src="assets/js/auth.js" defer></script>
+</body>
+</html>

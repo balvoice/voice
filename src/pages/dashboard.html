@@ -1,0 +1,75 @@
+<!-- title: Campaign Dashboard — BalVoice -->
+<!-- description: Create and manage voice broadcast campaigns. -->
+<!-- layout: app -->
+<!-- robots: noindex,nofollow -->
+
+<a class="skip-link" href="#app-main">Skip to content</a>
+<header class="topbar">
+  <button class="icon-btn sidebar-toggle" type="button" aria-expanded="false" aria-controls="sidebar">
+    <span class="sr-only">Toggle navigation</span>
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </button>
+  <a class="topbar-brand" href="index.html" aria-label="BalVoice website">
+    <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#FFFFFF"/><rect x="7" y="13" width="2.6" height="6" rx="1.3" fill="#1D5BBF"/><rect x="11.6" y="9.5" width="2.6" height="13" rx="1.3" fill="#13233D"/><rect x="16.2" y="6.5" width="2.6" height="19" rx="1.3" fill="#13233D"/><rect x="20.8" y="10.5" width="2.6" height="11" rx="1.3" fill="#13233D"/><rect x="25.4" y="14" width="2.6" height="4" rx="1.3" fill="#14804A"/></svg>
+    <span>BalVoice</span>
+  </a>
+  <span class="topbar-sep" aria-hidden="true"></span>
+  <span class="topbar-org" id="client-switch">Demo workspace</span>
+  <div class="topbar-right">
+    <a class="topbar-link" href="how-it-works.html">Help</a>
+    <span class="avatar" aria-label="Signed in account">DW</span>
+  </div>
+</header>
+
+<div class="app-shell">
+  <nav class="sidebar" id="sidebar" aria-label="Dashboard">
+    <div class="side-group">
+      <a class="side-btn side-btn-primary" href="#/new">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Create campaign
+      </a>
+    </div>
+    <div class="side-group">
+      <p class="side-label">Campaigns</p>
+      <a class="side-link" href="#/campaigns" data-route="campaigns">All campaigns</a>
+      <a class="side-link" href="#/reports" data-route="reports">Delivery reports</a>
+    </div>
+    <div class="side-group">
+      <p class="side-label">Audience</p>
+      <a class="side-link" href="#/groups" data-route="groups">Contact groups</a>
+      <a class="side-link" href="#/contacts" data-route="contacts">All contacts</a>
+      <a class="side-link" href="#/optouts" data-route="optouts">Opt-out register</a>
+    </div>
+    <div class="side-group">
+      <p class="side-label">Messages</p>
+      <a class="side-link" href="#/templates" data-route="templates">Templates</a>
+      <a class="side-link" href="#/audio" data-route="audio">Audio files</a>
+    </div>
+    <div class="side-group">
+      <p class="side-label">Account</p>
+      <a class="side-link" href="#/callerids" data-route="callerids">Caller IDs</a>
+      <a class="side-link" href="#/settings" data-route="settings">Settings</a>
+    </div>
+    <div class="side-group" data-live-only hidden>
+      <p class="side-label">BalVoice</p>
+      <a class="side-link" href="#/clients" data-route="clients">Clients</a>
+      <a class="side-link" href="#/requests" data-route="requests" data-admin-only hidden>Campaign requests</a>
+      <a class="side-link" href="#/team" data-route="team" data-admin-only hidden>Team</a>
+      <a class="side-link" href="#/audit" data-route="audit" data-admin-only hidden>Audit log</a>
+    </div>
+    <div class="side-foot">
+      <button type="button" class="side-link side-linkbtn" data-consent-open>Cookie settings</button>
+      <a class="side-link" href="index.html">← Back to website</a>
+    </div>
+  </nav>
+
+  <main class="app-main" id="app-main" tabindex="-1">
+    <div class="demo-banner" role="note" data-demo-only>
+      <strong>Demo.</strong> <span data-auth-status></span> Campaign data is stored only on this device, and no calls are placed. Delivery results are simulated.
+      <button class="link-btn" type="button" id="reset-demo">Clear demo data</button>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -1,0 +1,10 @@
+.env
+node_modules/
+tests/screenshots/
+tests/*.xlsx
+tests/*.xls
+tests/*.csv
+tests/*.wav
+supabase/.temp/
+supabase/functions/.env
+dist/

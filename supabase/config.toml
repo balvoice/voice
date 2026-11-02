@@ -1,0 +1,118 @@
+# BalVoice — Supabase CLI configuration (local development and reference for production).
+# Production settings are made in the Supabase dashboard; keep them in line with this file.
+# See docs/AUTH-SUPABASE.md for the step-by-step setup.
+
+project_id = "balvoice"
+
+[api]
+port = 54321
+schemas = ["public"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 17
+
+[storage]
+file_size_limit = "10MiB"
+
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:8000"
+additional_redirect_urls = [
+  "http://127.0.0.1:8000/auth-callback.html",
+  "http://127.0.0.1:8000/reset-password.html",
+  "https://www.example.com/auth-callback.html",
+  "https://www.example.com/reset-password.html",
+]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+# Internal tool: nobody can sign up. Admins invite staff (staff-admin Edge Function);
+# Google and phone sign-in work only for accounts that already exist.
+enable_signup = false
+enable_anonymous_sign_ins = false
+minimum_password_length = 10
+password_requirements = "lower_upper_letters_digits"
+
+[auth.rate_limit]
+email_sent = 4            # per hour, project-wide on the built-in mailer — use custom SMTP in production
+sms_sent = 30             # per hour, project-wide
+token_verifications = 30  # per 5 minutes per IP
+sign_in_sign_ups = 30     # per 5 minutes per IP
+
+# Cloudflare Turnstile — strongly recommended for public sign-up and SMS codes.
+# [auth.captcha]
+# enabled = true
+# provider = "turnstile"
+# secret = "env(TURNSTILE_SECRET_KEY)"
+
+[auth.email]
+enable_signup = false
+double_confirm_changes = true
+enable_confirmations = true
+secure_password_change = true
+max_frequency = "60s"
+otp_length = 6
+otp_expiry = 3600
+
+[auth.email.template.invite]
+subject = "You've been invited to BalVoice"
+content_path = "./supabase/templates/invite.html"
+
+[auth.email.template.confirmation]
+subject = "Confirm your BalVoice account"
+content_path = "./supabase/templates/confirm-signup.html"
+
+[auth.email.template.recovery]
+subject = "Reset your BalVoice password"
+content_path = "./supabase/templates/reset-password.html"
+
+[auth.email.template.email_change]
+subject = "Confirm your new email address"
+content_path = "./supabase/templates/change-email.html"
+
+[auth.sms]
+enable_signup = false
+enable_confirmations = true
+template = "Your BalVoice code is {{ .Code }}"   # not used when the Send SMS hook is enabled
+max_frequency = "60s"
+
+# Phone codes are sent by the send-sms Edge Function through BMS.
+[auth.hook.send_sms]
+enabled = true
+uri = "http://host.docker.internal:54321/functions/v1/send-sms"
+secrets = "env(SEND_SMS_HOOK_SECRETS)"
+
+# Two-factor sign-in for staff (authenticator app).
+[auth.mfa]
+max_enrolled_factors = 10
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[auth.external.google]
+enabled = true
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
+skip_nonce_check = false
+
+[functions.send-sms]
+verify_jwt = false
+
+[functions.dispatch-campaigns]
+verify_jwt = false   # protected by the CRON_SECRET header instead
+
+[functions.sync-reports]
+verify_jwt = false   # protected by the CRON_SECRET header instead
+
+[functions.request-form]
+verify_jwt = false
+[functions.opt-out]
+verify_jwt = false
+[functions.dialer]
+verify_jwt = false
+[functions.call-status]
+verify_jwt = false
+[functions.staff-admin]
+verify_jwt = true
